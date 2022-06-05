@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const rating = document.querySelectorAll('.container__rating--item');
+const form = document.querySelector('.container__form');
 const submitButton = document.querySelector('.container__button--submit');
 const thanks = document.querySelector('.thanks');
 const result = document.getElementById('result');
@@ -11,7 +12,10 @@ rating.forEach(element => {
     element.removeEventListener('click', () => rate(element))
 })
 
-submitButton.addEventListener('click', submitForm);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  submitForm();
+});
 
 function rate(e) {
   rating.forEach(item => {
